@@ -1,2 +1,6 @@
-# tic_tac_toe
-Игра крестики нолики.
+# Игра крестики нолики.
+
+``` bash
+git clone 
+python3 main.py
+```
