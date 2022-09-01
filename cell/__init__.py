@@ -1,9 +1,11 @@
 class Cell:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.cell = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
-
-    def add_and_check(self, numb_cell, element):
+    """
+    Проверка повторного хода в одну клетку
+    """
+    def add_and_check(self, numb_cell, element) -> bool:
         another_elem = ''
         if element == 'X':
             another_elem == 'O'
@@ -19,8 +21,10 @@ class Cell:
         elif self.cell[numb_cell] == element:
             print('Ход в эту клетку уже был сделан ранее! Переходи')
             return False
-
-    def check_winner(self):
+    """
+    Проверка победил ли кто-нибудь
+    """
+    def check_winner(self) -> bool:
         if ((self.cell[0] == 'X' and self.cell[0] == self.cell[1] and self.cell[1] == self.cell[2])
             or (self.cell[3] == 'X' and self.cell[3] == self.cell[4] and self.cell[4] == self.cell[5])
             or (self.cell[6] == 'X' and self.cell[6] == self.cell[7] and self.cell[7] == self.cell[8])
