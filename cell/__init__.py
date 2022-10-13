@@ -3,7 +3,7 @@ class Cell:
     def __init__(self) -> None:
         self.cell = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
     """
-    Проверка повторного хода в одну клетку
+    Check move repeat
     """
     def add_and_check(self, numb_cell, element) -> bool:
         another_elem = ''
@@ -16,13 +16,13 @@ class Cell:
             #print(self.cell)
             return True
         elif self.cell[numb_cell] == another_elem:
-            print('Ход в эту клетку уже был сделан ранее! Переходи')
+            print('The move to this cell has been moved! Move again!')
             return False
         elif self.cell[numb_cell] == element:
-            print('Ход в эту клетку уже был сделан ранее! Переходи')
+            print('The move to this cell has been move! Move again!')
             return False
     """
-    Проверка победил ли кто-нибудь
+    Check winner
     """
     def check_winner(self) -> bool:
         if ((self.cell[0] == 'X' and self.cell[0] == self.cell[1] and self.cell[1] == self.cell[2])
