@@ -1,4 +1,4 @@
-# Игра крестики нолики.
+# Tic tac toe
 
 ``` bash
 git clone 
