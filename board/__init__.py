@@ -3,7 +3,7 @@ class Board:
     def __init__(self):
         self.board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     """
-    Вывод первоначального поля
+    Output initial board
     """
     def print_board(self) -> str:
         print('\n', self.board[0], '|', self.board[1], '|', self.board[2])
@@ -13,7 +13,7 @@ class Board:
         print('', self.board[6], '|', self.board[7], '|', self.board[8])
 
     """
-    Вывод поля с ходами
+    Output board with moves
     """
     def new_board(self, move, player) -> str:
         if player == 'X':
