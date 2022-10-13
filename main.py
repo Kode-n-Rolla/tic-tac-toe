@@ -7,19 +7,19 @@ from player import Player
 def game():
     this_deck = Board()
     my_cell = Cell()
-    name = input('Твое имя: ')
+    name = input('Your name is ')
     while True:
-        choice_elem = input('\nЧем будешь играть? (ввод на английской раскладке(Х или О)): ').upper()
+        choice_elem = input('\nWhat do you want to play?: ').upper()
         person = Player(name, choice_elem)
 
         if choice_elem == 'X':
-            print(f'{person.name} ходит первым.')
+            print(f'{person.name} move first.')
             break
         elif choice_elem == 'O':
-            print('ИИ ходит первым.')
+            print('AI move first.')
             break
         else:
-            print('Ошибка ввода!')
+            print('Error input!')
 
     move_list = []
     ai_move_list = []
@@ -29,16 +29,16 @@ def game():
         try:
             my_cell.check_winner()
             if my_cell.check_winner() == True:
-                print('Победители крестики')
+                print('Winner is X')
                 break
             elif my_cell.check_winner() == False:
-                print('Победители нолики')
+                print('Winner is 0')
                 break
             if choice_elem == 'X' or choice_elem == 'Х':
                 ai_elem = 'O'
-                move = int(input('\nКуда сходить? '))
+                move = int(input('\nNumber of place move? '))
                 if my_cell.add_and_check(move, choice_elem) == False:
-                    move = int(input('\nКуда сходить!? '))
+                    move = int(input('\nNumber of place move? '))
                     move_list.append(move)
                     my_cell.add_and_check(move, choice_elem)
                 move_list.append(move)
@@ -47,7 +47,7 @@ def game():
                 ai_move = random.choice([i for i in range(0, 9) if i not in move_list
                                          and i not in ai_move_list])
                 ai_move_list.append(ai_move)
-                print('Ход ИИ:', ai_move)
+                print('AI move:', ai_move)
                 this_deck.new_board(ai_move, ai_elem)
 
             elif choice_elem == 'O' or choice_elem == 'О':
@@ -55,18 +55,18 @@ def game():
                 ai_move = random.choice([i for i in range(0, 9) if i not in move_list
                                          and i not in ai_move_list])
                 ai_move_list.append(ai_move)
-                print('Ход ИИ:', ai_move)
+                print('AI move:', ai_move)
                 this_deck.new_board(ai_move, ai_elem)
-                move = int(input('\nКуда сходить? '))
+                move = int(input('\nNumber of place move? '))
                 if my_cell.add_and_check(move, choice_elem) == False:
-                    move = int(input('\nКуда сходить!? '))
+                    move = int(input('\nNumver of place move? '))
                     move_list.append(move)
                     my_cell.add_and_check(move, choice_elem)
                 move_list.append(move)
                 this_deck.new_board(move, choice_elem)
 
         except IndexError:
-            print('Победила дружба')
+            print('Friendly is winner!')
             break
 
 
